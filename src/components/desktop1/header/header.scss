@@ -1,0 +1,35 @@
+.header {
+  position: relative;
+  height: 100vh;
+  background: #558360;
+  overflow: hidden;
+
+  &__leftPart {
+    position: absolute;
+    bottom: 0;
+    left: -20vw;
+    width: 20vw;
+    transition: 1s;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__rightPart {
+    position: absolute;
+    bottom: 0;
+    right: -20vw;
+    width: 20vw;
+    transform: scaleX(-1);
+    transition: 1s;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

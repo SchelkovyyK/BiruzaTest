@@ -1,0 +1,71 @@
+.desktopNavigator {
+  position: fixed; // so it overlays
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background: rgba(50, 50, 50, 0.95);
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 90; // less than button's z-index
+  display: flex; // enable flex
+  align-items: center; // vertical centering
+  justify-content: center;
+
+  &.active {
+    transform: translateX(0);
+  }
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // center links horizontally
+    &__link {
+      position: relative;
+      text-align: center;
+      padding: 10px 0 10px;
+      font-size: 2rem;
+      color: black;
+      text-decoration: none;
+      transition: 0.5s;
+      margin-bottom: 20px;
+      width: 250px;
+      &:visited {
+        color: black;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0px;
+        background: linear-gradient(
+          90deg,
+          rgba(42, 123, 155, 1) 0%,
+          rgba(87, 199, 133, 1) 50%,
+          rgba(237, 221, 83, 1) 100%
+        );
+        transition: 0.3s;
+      }
+
+      &::before {
+        top: 0;
+        right: 0;
+      }
+
+      &::after {
+        bottom: 0;
+        left: 0;
+      }
+
+      &:hover::before,
+      &:hover::after {
+        height: 4px;
+      }
+
+      &.active {
+        color: rgb(139, 255, 211);
+      }
+    }
+  }
+}
